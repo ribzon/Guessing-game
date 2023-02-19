@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Guessing Gamew</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+font-family: Arial, sans-serif;
+}
+input[type="text"] {
+width: 50%;
+padding: 12px 20px;
+margin: 8px 0;
+box-sizing: border-box;
+border: 2px solid #ccc;
+border-radius: 4px;
+}
+button {
+background-color: #4CAF50;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Guessing Game</h1>
+</header>
+
+<main>
+<p>I'm thinking of a number between 1 and 100. Can you guess what it is?</p>
+<input type="text" id="guess" placeholder="Enter your guess">
+<button onclick="checkGuess()">Guess</button>
+<p id="message"></p>
+</main>
+
+<footer>
+<p>&copy; 2023 Guessing Game. All rights reserved.</p>
+</footer>
+
+<script>
+var randomNumber = Math.floor(Math.random() * 100) + 1; // Generate a random number between 1 and 100
+
+function checkGuess() {
+var guess = document.getElementById("guess").value;
+var message = document.getElementById("message");
+
+if (guess == randomNumber) {
+message.innerHTML = "Congratulations! You guessed the correct number!";
+} else if (guess < randomNumber) {
+message.innerHTML = "Too low! Guess again.";
+} else {
+message.innerHTML = "Too high! Guess again.";
+}
+
+document.getElementById("guess").value = ""; // Clear the input field
+document.getElementById("guess").focus(); // Set focus back to the input field
+}
+</script>
+</body>
+</html>
